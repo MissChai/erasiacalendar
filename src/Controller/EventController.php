@@ -59,21 +59,15 @@ class EventController {
 			}
 		}
 
-		if ( $_POST['begin_date'] ) {
-			$begin      = explode( '-', $_POST['begin_date'] );
-			$beginDay   = $begin[0];
-			$beginMonth = ( isset( $begin[1] ) ) ? $begin[1] : '00';
-			$beginYear  = ( isset( $begin[2] ) ) ? $begin[2] : '0000';
-			$event->setBeginDate( $beginYear . '-' . $beginMonth . '-' . $beginDay );
-		}
+		$beginDay   = ( isset( $_POST['begin_date_day'] ) )   ? $_POST['begin_date_day']   : '00';
+		$beginMonth = ( isset( $_POST['begin_date_month'] ) ) ? $_POST['begin_date_month'] : '00';
+		$beginYear  = ( isset( $_POST['begin_date_year'] ) )  ? $_POST['begin_date_year']  : '0000';
+		$event->setBeginDate( $beginYear . '-' . $beginMonth . '-' . $beginDay );
 
-		if ( $_POST['end_date'] ) {
-			$end      = explode( '-', $_POST['end_date'] );
-			$endDay   = $end[0];
-			$endMonth = ( isset( $end[1] ) ) ? $end[1] : '00';
-			$endYear  = ( isset( $end[2] ) ) ? $end[2] : '0000';
-			$event->setEndDate( $endYear  . '-' . $endMonth   . '-' . $endDay );
-		}
+		$endDay   = ( isset( $_POST['end_date_day'] ) )   ? $_POST['end_date_day']   : '00';
+		$endMonth = ( isset( $_POST['end_date_month'] ) ) ? $_POST['end_date_month'] : '00';
+		$endYear  = ( isset( $_POST['end_date_year'] ) )  ? $_POST['end_date_year']  : '0000';
+		$event->setEndDate( $endYear  . '-' . $endMonth   . '-' . $endDay );
 
 		$evtRep = new EventRepository();
 		$save   = $evtRep->save( $event );
@@ -134,21 +128,15 @@ class EventController {
 				}
 			}
 
-			if ( $_POST['begin_date'] ) {
-				$begin      = explode( '-', $_POST['begin_date'] );
-				$beginDay   = $begin[0];
-				$beginMonth = ( isset( $begin[1] ) ) ? $begin[1] : '00';
-				$beginYear  = ( isset( $begin[2] ) ) ? $begin[2] : '0000';
-				$event->setBeginDate( $beginYear . '-' . $beginMonth . '-' . $beginDay );
-			}
+			$beginDay   = ( isset( $_POST['begin_date_day'] ) )   ? $_POST['begin_date_day']   : '00';
+			$beginMonth = ( isset( $_POST['begin_date_month'] ) ) ? $_POST['begin_date_month'] : '00';
+			$beginYear  = ( isset( $_POST['begin_date_year'] ) )  ? $_POST['begin_date_year']  : '0000';
+			$event->setBeginDate( $beginYear . '-' . $beginMonth . '-' . $beginDay );
 
-			if ( $_POST['end_date'] ) {
-				$end      = explode( '-', $_POST['end_date'] );
-				$endDay   = $end[0];
-				$endMonth = ( isset( $end[1] ) ) ? $end[1] : '00';
-				$endYear  = ( isset( $end[2] ) ) ? $end[2] : '0000';
-				$event->setEndDate( $endYear  . '-' . $endMonth   . '-' . $endDay );
-			}
+			$endDay   = ( isset( $_POST['end_date_day'] ) )   ? $_POST['end_date_day']   : '00';
+			$endMonth = ( isset( $_POST['end_date_month'] ) ) ? $_POST['end_date_month'] : '00';
+			$endYear  = ( isset( $_POST['end_date_year'] ) )  ? $_POST['end_date_year']  : '0000';
+			$event->setEndDate( $endYear  . '-' . $endMonth   . '-' . $endDay );
 			
 			$save = $evtRep->save( $event );
 

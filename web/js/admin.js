@@ -112,9 +112,100 @@ jQuery(document).ready( function() {
 		$( '#country' ).selectpicker( 'val', '' );
 	});
 
+	// Form Event
+	var is_annual = $( 'input[name="is_annual"]:checked' ).val();
+	if ( is_annual == 1 ) {
+		$( '#begin_date_year' ).prop( 'disabled', true );
+		$( '#begin_date_year' ).selectpicker( 'refresh' );
+		$( '#end_date_year' ).prop( 'disabled', true );
+		$( '#end_date_year' ).selectpicker( 'refresh' );
+	}
+	$( 'input[name="is_annual"]' ).change( function() {
+		var is_annual = $( 'input[name="is_annual"]:checked' ).val();
+		if ( is_annual == 1 ) {
+			$( '#begin_date_year' ).prop( 'disabled', true );
+			$( '#begin_date_year' ).selectpicker( 'refresh' );
+			$( '#end_date_year' ).prop( 'disabled', true );
+			$( '#end_date_year' ).selectpicker( 'refresh' );
+		}
+		else {
+			$( '#begin_date_year' ).prop( 'disabled', false );
+			$( '#begin_date_year' ).selectpicker( 'refresh' );
+			$( '#end_date_year' ).prop( 'disabled', false );
+			$( '#end_date_year' ).selectpicker( 'refresh' );
+		}
+	});
+
+	var begin_month = $( '#begin_date_month' ).val();
+	if ( begin_month == 2 ) {
+		$( '#begin_date_day' ).find( 'option[value="29"]' ).prop( 'disabled', true );
+		$( '#begin_date_day' ).find( 'option[value="30"]' ).prop( 'disabled', true );
+		$( '#begin_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		$( '#begin_date_day' ).selectpicker( 'refresh' );
+	}
+	else if ( begin_month == 4 || begin_month == 6 || begin_month == 9 || begin_month == 11 ) {
+		$( '#begin_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		$( '#begin_date_day' ).selectpicker( 'refresh' );
+	}
+	$( '#begin_date_month' ).change( function() {
+		var begin_month = $( '#begin_date_month' ).val();
+		if ( begin_month == 2 ) {
+			$( '#begin_date_day' ).find( 'option[value="29"]' ).prop( 'disabled', true );
+			$( '#begin_date_day' ).find( 'option[value="30"]' ).prop( 'disabled', true );
+			$( '#begin_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		}
+		else if ( begin_month == 4 || begin_month == 6 || begin_month == 9 || begin_month == 11 ) {
+			$( '#begin_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		}
+		else {
+			$( '#begin_date_day' ).find( 'option[value="29"]' ).prop( 'disabled', false );
+			$( '#begin_date_day' ).find( 'option[value="30"]' ).prop( 'disabled', false );
+			$( '#begin_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', false );
+		}
+		$( '#begin_date_day' ).selectpicker( 'refresh' );
+	});
+
+	var end_month = $( '#end_date_month' ).val();
+	if ( end_month == 2 ) {
+		$( '#end_date_day' ).find( 'option[value="29"]' ).prop( 'disabled', true );
+		$( '#end_date_day' ).find( 'option[value="30"]' ).prop( 'disabled', true );
+		$( '#end_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		$( '#end_date_day' ).selectpicker( 'refresh' );
+	}
+	else if ( end_month == 4 || end_month == 6 || end_month == 9 || end_month == 11 ) {
+		$( '#end_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		$( '#end_date_day' ).selectpicker( 'refresh' );
+	}
+	$( '#end_date_month' ).change( function() {
+		var end_month = $( '#begin_date_month' ).val();
+		if ( end_month == 2 ) {
+			$( '#end_date_day' ).find( 'option[value="29"]' ).prop( 'disabled', true );
+			$( '#end_date_day' ).find( 'option[value="30"]' ).prop( 'disabled', true );
+			$( '#end_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		}
+		else if ( end_month == 4 || end_month == 6 || end_month == 9 || end_month == 11 ) {
+			$( '#end_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', true );
+		}
+		else {
+			$( '#end_date_day' ).find( 'option[value="29"]' ).prop( 'disabled', false );
+			$( '#end_date_day' ).find( 'option[value="30"]' ).prop( 'disabled', false );
+			$( '#end_date_day' ).find( 'option[value="31"]' ).prop( 'disabled', false );
+		}
+		$( '#end_date_day' ).selectpicker( 'refresh' );
+	});
+
+	
+
 	// Ajax
 	$( '#form-event' ).submit( function(e) {
 		e.preventDefault();
+		
+		var begin_day = $( '#begin_date_day' ).find( 'option:selected' ).prop( 'disabled' );
+		var end_day   = $( '#end_date_day' ).find( 'option:selected' ).prop( 'disabled' );
+		if ( begin_day == true || end_day == true ) {
+			$( '#ajax' ).html('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Erreur lors de la sauvegarde :</strong> Date incorrecte.</div>');
+			return;
+		}
 
 		$.ajax({
 			type: 'POST',
