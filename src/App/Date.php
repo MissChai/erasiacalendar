@@ -33,7 +33,7 @@ class Date {
 	  * @param $currentYear, $forwardYear
 	  * @return $result
 	  */
-	function findBetweenYears( int $currentYear, int $forwardYear ) {
+	function findBetweenYears( $currentYear, $forwardYear ) {
 		$result = array();
 		$date   = new DateTime( $currentYear . '-01-01' );
 

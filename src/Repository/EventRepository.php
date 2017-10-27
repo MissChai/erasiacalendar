@@ -81,7 +81,7 @@ class EventRepository {
 	  *
 	  * @param $currentYear, $forwardYear
 	  */
-	public function findBetweenYears( int $currentYear, int $forwardYear ) {
+	public function findBetweenYears( $currentYear, $forwardYear ) {
 		$all    = $this->findAll();
 		$events = array();
 
@@ -149,7 +149,7 @@ class EventRepository {
 	 * @param int $locId Location identifier
 	 * @return Event
 	 */
-	public function findByLocation( int $locId ) {
+	public function findByLocation( $locId ) {
 		global $dataBase;
 
 		$sql = "
@@ -174,7 +174,7 @@ class EventRepository {
 	 * @param int $evtId Event identifier
 	 * @return Event
 	 */
-	public function findById( int $evtId ) {
+	public function findById( $evtId ) {
 		global $dataBase;
 
 		$sql = "
@@ -197,7 +197,7 @@ class EventRepository {
 	 * @param event $event Event to save
 	 * @return Event Saved event
 	 */
-	function save( Event $event ) {
+	function save( $event ) {
 		if ( !$event->getName() ) {
 			return 'Nom obligatoire.';
 		}
@@ -252,10 +252,10 @@ class EventRepository {
 	/**
 	 * Inserts an event into the database
 	 *
-	 * @param Event $event event to save
+	 * @param event $event Event to save
 	 * @return event Saved event
 	 */
-	function insert( Event $event ) {
+	function insert( $event ) {
 		global $dataBase;
 
 		$locId = null;
@@ -287,7 +287,7 @@ class EventRepository {
 	 * @param Event $event Event to save
 	 * @return Event Saved event
 	 */
-	function update( Event $event ) {
+	function update( $event ) {
 		global $dataBase;
 
 		$locId = null;
@@ -327,14 +327,14 @@ class EventRepository {
 	 *
 	 * @param int $evtId Event identifier
 	 */
-	function delete( int $evtId ) {
+	function delete( $evtId ) {
 		global $dataBase;
 
 		$sql = "
 			DELETE FROM t_event
 			WHERE evt_id = ?
 		";
-
+		
 		$sth = $dataBase->prepare( $sql );
 		$sth->execute( array( $evtId ) );
 	}
@@ -345,7 +345,7 @@ class EventRepository {
 	 * @param array $row Database row containing the data
 	 * @return Event
 	 */
-	protected function buildDomainObject( array $row ) {
+	protected function buildDomainObject( $row ) {
 		$event = new Event();
 
 		$event->setId( $row['evt_id'] );

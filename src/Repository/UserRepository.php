@@ -32,7 +32,7 @@ class UserRepository {
 	 * @param int $usrId Location identifier
 	 * @return User
 	 */
-	public function findById( int $usrId ) {
+	public function findById( $usrId ) {
 		global $dataBase;
 
 		$sql = "
@@ -78,7 +78,7 @@ class UserRepository {
 	 * @param User $user User to save
 	 * @return User Saved user
 	 */
-	function save( User $user ) {
+	function save( $user ) {
 		if ( $user->getId() ) {
 			return $this->update( $user );
 		}
@@ -93,7 +93,7 @@ class UserRepository {
 	 * @param User $user User to save
 	 * @return User Saved user
 	 */
-	function insert( User $user ) {
+	function insert( $user ) {
 		global $dataBase;
 
 		$sql = "
@@ -116,7 +116,7 @@ class UserRepository {
 	 * @param User $user User to save
 	 * @return User Saved user
 	 */
-	function update( User $user ) {
+	function update( $user ) {
 		global $dataBase;
 
 		$sql = "
@@ -140,7 +140,7 @@ class UserRepository {
 	 *
 	 * @param int $usrId User identifier
 	 */
-	function delete( int $usrId ) {
+	function delete( $usrId ) {
 		global $dataBase;
 
 		$sql = "
@@ -158,7 +158,7 @@ class UserRepository {
 	 * @param array $row Database row containing the data
 	 * @return User
 	 */
-	protected function buildDomainObject( array $row ) {
+	protected function buildDomainObject( $row ) {
 		$user = new User();
 
 		$user->setId( $row['usr_id'] );

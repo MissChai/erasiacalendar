@@ -32,7 +32,7 @@ class LocationRepository {
 	 * @param int $locId Location identifier
 	 * @return Location
 	 */
-	public function findById( int $locId ) {
+	public function findById( $locId ) {
 		global $dataBase;
 
 		$sql = "
@@ -55,7 +55,7 @@ class LocationRepository {
 	 * @param int $locId Location identifier
 	 * @return Location
 	 */
-	public function getFrequency( int $locId ) {
+	public function getFrequency( $locId ) {
 		global $dataBase;
 
 		$sql = "
@@ -79,7 +79,7 @@ class LocationRepository {
 	 * @param Location $location Location to save
 	 * @return Location Saved location
 	 */
-	function save( Location $location ) {
+	function save( $location ) {
 		$continents = $location->continents;
 
 		if ( !$location->getContinent() ) {
@@ -114,7 +114,7 @@ class LocationRepository {
 	 * @param Location $location Location to save
 	 * @return Location Saved location
 	 */
-	function insert( Location $location ) {
+	function insert( $location ) {
 		global $dataBase;
 
 		$sql = "
@@ -137,7 +137,7 @@ class LocationRepository {
 	 * @param Location $location Location to save
 	 * @return Location Saved location
 	 */
-	function update( Location $location ) {
+	function update( $location ) {
 		global $dataBase;
 
 		$sql = "
@@ -161,7 +161,7 @@ class LocationRepository {
 	 *
 	 * @param int $locId Location identifier
 	 */
-	function delete( int $locId ) {
+	function delete( $locId ) {
 		global $dataBase;
 
 		$sql = "
@@ -179,7 +179,7 @@ class LocationRepository {
 	 * @param array $row Database row containing the data
 	 * @return Location
 	 */
-	protected function buildDomainObject( array $row ) {
+	protected function buildDomainObject( $row ) {
 		$location = new Location();
 
 		$location->setId( $row['loc_id'] );
