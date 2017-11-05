@@ -5,6 +5,8 @@ $router = new Router( isset( $_GET['url'] ) ? $_GET['url'] : '' );
 $router->get( '/',         'CalendarController::showAction' );
 $router->get( '/calendar', 'CalendarController::showAction' );
 
+$router->get( '/api/tables/:numberOfYears', 'ApiController::monthlyTablesAction' );
+
 $router->post( '/admin/login',  'UserController::loginAction' );
 $router->get(  '/admin/logout', 'UserController::logoutAction' );
 

@@ -9,6 +9,7 @@ require( 'src/App/Date.php' );
 require( 'src/App/Route.php' );
 require( 'src/App/Router.php' );
 
+require( 'src/Controller/ApiController.php' );
 require( 'src/Controller/CalendarController.php' );
 require( 'src/Controller/EventController.php' );
 require( 'src/Controller/LocationController.php' );
