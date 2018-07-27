@@ -2,8 +2,8 @@
 
 try {
 	$dataBase = new PDO(
-		'mysql:host=localhost; dbname=calendar_t0ka',
-		'calendar_t0ka',
+		'mysql:host=sql300.epizy.com; dbname=epiz_22466187_calendar',
+		'epiz_22466187',
 		'tropfort',
 		array( PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8' )
 	);
@@ -13,4 +13,4 @@ catch ( PDOException $e ) {
 	exit();
 }
 
-$GLOBALS['server'] = 'http://erasia-calendar.livehost.fr/';
+$GLOBALS['server'] = 'http://erasia-calendar.epizy.com/';
