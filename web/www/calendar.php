@@ -97,7 +97,7 @@
 			<div class="panel">
 				<h2>Principe</h2>
 				<p>
-					Ce calendrier détaille les différents événements périodique ou non qui se passent sur les terres érasiennes.&nbsp;
+					Ce calendrier détaille les différents événements périodiques ou non qui se passent sur les terres érasiennes.&nbsp;
 					Vous pouvez donc consulter ici les diverses dates durant lesquelles vous êtes invité à lancer des RP s'affiliant à
 					des fêtes ou périodes particulières. Pour plus de détails, rendez-vous au règlement lié à ce sujet,
 					<a href="http://erasia-rpg.forum-actif.net/t98-4-regles-et-presentation-du-role-play">ici !</a>
