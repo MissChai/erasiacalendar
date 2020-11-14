@@ -2,9 +2,9 @@
 
 try {
 	$dataBase = new PDO(
-		'mysql:host=sql300.epizy.com; dbname=epiz_22466187_calendar',
-		'epiz_22466187',
-		'tropfort',
+		'mysql:host=sql209.epizy.com; dbname=epiz_27194087_calendar',
+		'epiz_27194087',
+		'7mPD8n5qKt3w',
 		array( PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8' )
 	);
 }

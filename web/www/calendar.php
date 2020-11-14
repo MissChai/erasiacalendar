@@ -25,7 +25,7 @@
 		<link rel="icon" href="<?php echo $GLOBALS['server']; ?>web/img/favicon.png" />
 		<link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['server']; ?>web/css/all.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['server']; ?>web/css/calendar.css" />
-		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Sunshiny' />
+		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Sunshiny|Averia+Sans+Libre' />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="<?php echo $GLOBALS['server']; ?>web/js/calendar.js"></script>
 	</head>
@@ -118,7 +118,7 @@
 									}
 								?>
 							</ul>
-						</td>		
+						</td>
 					</tr>
 					<tr>
 						<td><b>Mois&nbsp;:</b></td>
@@ -181,9 +181,9 @@
 												else {
 													echo '<td>';
 												}
-												echo '<div class="day">' . $day . '</div>';										
+												echo '<div class="day">' . $day . '</div>';
 
-												// On ajoute les événements s'il y en a		
+												// On ajoute les événements s'il y en a
 												if ( isset( $events[$timestamp] ) ) {
 													echo '<ul class="events">';
 													foreach ( $events[$timestamp] as $id => $event ) {
@@ -215,7 +215,7 @@
 																	echo '<span class="location ' . strtolower( $event->getLocation()->getCountry() ) . '">';
 																		echo $event->getLocation()->smallString();
 																	echo '</span>';
-																	echo '<br /><hr class="separator" />';	
+																	echo '<br /><hr class="separator" />';
 																}
 																echo '<div>' . $event->getDescription() . '</div>';
 															echo '</div>';

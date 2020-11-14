@@ -1,8 +1,8 @@
 <?php
 
 // Conf
-require( 'app/conf/dev.php' );
-//require( 'app/conf/prod.php' );
+//require( 'app/conf/dev.php' );
+require( 'app/conf/prod.php' );
 
 // Sources
 require( 'src/App/Date.php' );
